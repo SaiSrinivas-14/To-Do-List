@@ -6,7 +6,7 @@
         while (true)
         {
             Console.WriteLine("Basic TO-DO List");
-            Console.WriteLine("1.Add\n2.View\n3.Exit");
+            Console.WriteLine("1.Add\n2.View\n3.Exit\n4.Delete");
             int.TryParse(Console.ReadLine(), out int n);
             if (n == 1)
             {
@@ -18,6 +18,10 @@
             }
             if (n == 3)
                 return;
+            if (n == 4)
+            {
+                DeleteTask(n);
+            }
         }        
         static void AddTask()
         {
@@ -32,6 +36,14 @@
                 Console.WriteLine($"{i + 1} : {tasks[i]}");
 
             }
+        }
+        static void DeleteTask(int n)
+        {
+            for(int i = 0; i < tasks.Count; i++)
+            {
+                tasks.Remove(tasks[i]);
+            }
+            Console.WriteLine("Task deleted successfully");
         }
     }
 }
